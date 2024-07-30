@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package weather;
+
+service weatherService {
+  rpc GetWeather (weatherRequest) returns (weatherResponse);
+}
+
+message weatherRequest {
+  string place = 1;
+}
+
+message weatherResponse {
+  //기온, 날씨, 강수확률
+  string temperature = 1;
+  string weather = 2;
+  string rain = 3;
+}
+

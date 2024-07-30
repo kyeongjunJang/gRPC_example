@@ -1,0 +1,18 @@
+{
+    "Seoul": {
+      "temperature": "25C",
+      "weather": "Sunny",
+      "rain": "0%"
+    },
+    "Busan": {
+      "temperature": "30C",
+      "weather": "Cloudy",
+      "rain": "10%"
+    },
+    "Incheon": {
+      "temperature": "20C",
+      "weather": "Rainy",
+      "rain": "80%"
+    }
+  }
+  

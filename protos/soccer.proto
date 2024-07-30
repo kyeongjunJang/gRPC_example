@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package soccer;
+
+service soccerService {
+  rpc GetSoccer (stream soccerRequest) returns (stream soccerResponse);
+}
+
+message soccerRequest {
+  //어떤 경기인지 요청
+  string game = 1;
+}
+
+message soccerResponse {
+  //경기 스코어, 골 넣은 시간, 골 넣은 선수
+  string score = 1;
+  string time = 2;
+  string player = 3;
+}

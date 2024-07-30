@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package stock;
+
+service stockService {
+  rpc GetStock (stockRequest) returns (stream stockResponse);
+}
+
+message stockRequest {
+// 티커
+  string code = 1;
+}
+
+message stockResponse {
+// 주식 풀네임 , 가격, 시간
+  string name = 1;
+  string price = 2;
+  string time = 3;
+}
