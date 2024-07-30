@@ -11,7 +11,6 @@ using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::ServerWriter; // ServerWriter is used to send multiple messages
-using grpc::ServerBuilder; // ServerBuilder is used to create the server
 using grpc::Status;
 using grpc::StatusCode; // StatusCode is used to define the status of an RPC
 using stock::stockRequest;
@@ -32,7 +31,7 @@ public:
     Status GetStock(ServerContext* context, const stockRequest* request,
                           ServerWriter<stockResponse>* writer) override {
         std::string code = request->code();
-        
+
         if (stock_data_.find(code) == stock_data_.end()) {
             return Status(StatusCode::NOT_FOUND, "Stock code not found.");
         }
@@ -53,7 +52,7 @@ public:
                 response.set_price(prices[i]["price"].get<std::string>());
                 response.set_time(prices[i]["time"].get<std::string>());
                 writer->Write(response);
-                // std::this_thread::sleep_for(std::chrono::seconds(1)); // Simulate real-time updates
+                std::this_thread::sleep_for(std::chrono::seconds(1)); // Simulate real-time updates
             }
         }
         return Status::OK;
@@ -72,7 +71,6 @@ void RunServer(const std::string& db_file) {
     
     std::unique_ptr<Server> server(builder.BuildAndStart());
     std::cout << "Server listening on " << server_address << std::endl;
-
     server->Wait();
 }
 

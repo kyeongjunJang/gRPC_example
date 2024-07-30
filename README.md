@@ -9,7 +9,7 @@ gRPC example
 - Service Description: When a client requests weather information, the server responds with weather data for the specified location.
 - Protocol: Defines an RPC method for single request and single response.
 
-### 2. StockPriceTrend: Single Request → Stream Response (TBU)
+### 2. StockPriceTrend: Single Request → Stream Response
 - Service Description: Clients request stock price trends, and the server streams real-time price data for a specific stock.
 - Protocol: Defines an RPC method for single request and streaming response.
 

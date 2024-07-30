@@ -17,7 +17,7 @@ public:
     StockClient(std::shared_ptr<Channel> channel)
         : stub_(stockService::NewStub(channel)) {}
 
-    void GetStockPrices(const std::string& ticker) {
+    void GetStock(const std::string& ticker) {
         stockRequest request;
         request.set_code(ticker);
 
@@ -58,12 +58,12 @@ int main(int argc, char** argv) {
     std::string target_str = "localhost:50051";
 
     StockClient client(grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
-
+    
     std::string ticker;
     std::cout << "Enter stock ticker: ";
     std::cin >> ticker;
 
-    client.GetStockPrices(ticker);
+    client.GetStock(ticker);
 
     return 0;
 }
