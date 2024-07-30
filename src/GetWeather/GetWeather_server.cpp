@@ -36,7 +36,6 @@ public:
       reply->set_weather(weather_db_[place]["weather"].get<std::string>());
       reply->set_rain(weather_db_[place]["rain"].get<std::string>());
     } else {
-      // 요청한 장소가 데이터베이스에 없을 경우 "N/A"로 응답합니다.
       reply->set_temperature("N/A");
       reply->set_weather("N/A");
       reply->set_rain("N/A");
@@ -62,11 +61,7 @@ void RunServer(const std::string& db_file) {
 }
 
 int main(int argc, char** argv) {
-  // 데이터베이스 파일 경로를 인자로 전달받을 수 있도록 수정
   std::string db_file = "../config/weather_db.json";
-  if (argc > 1) {
-    db_file = argv[1];
-  }
   RunServer(db_file);
   return 0;
 }
