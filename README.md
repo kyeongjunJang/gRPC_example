@@ -25,11 +25,11 @@ $ mkdir build && cd build
 $ cmake ..
 $ make
 
-$ ./GetWeather_server
+$ ./src/GetWeather/GetWeather_server
 
 Run the Client: In the new terminal, execute the client code:
 
-$ ./GetWeather_client 
+$ ./src/GetWeather/GetWeather_client 
 
 If you have other gRPC examples you’d like to explore, feel free to adapt the steps similarly.
 </code>
