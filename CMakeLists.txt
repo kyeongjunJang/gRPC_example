@@ -6,4 +6,3 @@ project(grpc_example
 
 add_subdirectory(protos)
 add_subdirectory(src)
-

@@ -27,7 +27,8 @@ public:
     }
   }
 
-  Status GetWeather(ServerContext* context, const weatherRequest* request, weatherResponse* reply) override {
+  Status GetWeather(ServerContext* context, const weatherRequest* request,
+                          weatherResponse* reply) override {
     std::string place = request->place();
 
     if (weather_db_.contains(place)) {
@@ -44,7 +45,7 @@ public:
   }
 
 private:
-  json weather_db_; // JSON 데이터베이스를 저장할 변수
+  json weather_db_;
 };
 
 void RunServer(const std::string& db_file) {

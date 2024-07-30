@@ -13,9 +13,10 @@ using weather::weatherService;
 
 class WeatherClient {
 public:
-  WeatherClient(std::shared_ptr<Channel> channel) : stub_(weatherService::NewStub(channel)) {}
+  WeatherClient(std::shared_ptr<Channel> channel) 
+      : stub_(weatherService::NewStub(channel)) {}
 
-  void GetWeather(const std::string& place) {
+  void GetWeatherInfo(const std::string& place) {
     weatherRequest request;
     request.set_place(place);
 
@@ -38,12 +39,14 @@ private:
 };
 
 int main(int argc, char** argv) {
-  WeatherClient client(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
+  std::string target_str = "localhost:50051";
+
+  WeatherClient client(grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
 
   std::string place;
-  std::cout << "Enter the place for weather information: ";
-  std::getline(std::cin, place); // 사용자로부터 place 입력 받기
+  std::cout << "Enter the place for weather information: (e.g. Seoul, Busan, Incheon)" << std::endl;
+  std::getline(std::cin, place);
 
-  client.GetWeather(place);
+  client.GetWeatherInfo(place);
   return 0;
 }
