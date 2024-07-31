@@ -5,15 +5,15 @@ gRPC example
 - Language: C++
 - Build System: CMake
 
-### 1. GetWeather: Single Request → Single Response
+### 1. GetWeather: Single Request → Single Response (Unary RPCs)
 - Service Description: When a client requests weather information, the server responds with weather data for the specified location.
 - Protocol: Defines an RPC method for single request and single response.
 
-### 2. StockPriceTrend: Single Request → Stream Response
+### 2. StockPriceTrend: Single Request → Stream Response (Server streaming RPCs)
 - Service Description: Clients request stock price trends, and the server streams real-time price data for a specific stock.
 - Protocol: Defines an RPC method for single request and streaming response.
 
-### 3. SoccerStreaming: Stream Request → Stream Response (TBU)
+### 3. SoccerStreaming: Stream Request → Stream Response (Bidirectional streaming RPCs, TBU)
 - Service Description: Multiple clients watch live soccer matches and receive event updates .
 - Protocol: Defines an RPC method for streaming request and streaming response.
 
