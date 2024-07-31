@@ -49,7 +49,7 @@ private:
 };
 
 void RunServer(const std::string& db_file) {
-  std::string server_address("0.0.0.0:50051");
+  std::string server_address("127.0.0.1:50051");
   WeatherServiceImpl service(db_file);
 
   ServerBuilder builder;

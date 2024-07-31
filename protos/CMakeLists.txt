@@ -5,7 +5,7 @@ find_package(gRPC CONFIG REQUIRED)
 set(PROTO_FILES
     weather.proto
     stock.proto
-    soccer.proto
+    chat.proto
     )
 
 add_library(protos ${PROTO_FILES})

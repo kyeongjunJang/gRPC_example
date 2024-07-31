@@ -52,7 +52,7 @@ public:
                 response.set_price(prices[i]["price"].get<std::string>());
                 response.set_time(prices[i]["time"].get<std::string>());
                 writer->Write(response);
-                std::this_thread::sleep_for(std::chrono::seconds(1)); // Simulate real-time updates
+                std::this_thread::sleep_for(std::chrono::milliseconds(200)); // Simulate real-time updates
             }
         }
         return Status::OK;
@@ -62,7 +62,7 @@ private:
     json stock_data_;
 };
 void RunServer(const std::string& db_file) {
-    std::string server_address("0.0.0.0:50051");
+    std::string server_address("127.0.0.1:50052");
     StockServiceImpl service(db_file);
 
     ServerBuilder builder;

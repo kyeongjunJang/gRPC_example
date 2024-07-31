@@ -43,10 +43,12 @@ int main(int argc, char** argv) {
 
   WeatherClient client(grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
 
-  std::string place;
-  std::cout << "Enter the place for weather information: (e.g. Seoul, Busan, Incheon)" << std::endl;
-  std::getline(std::cin, place);
+  while (true) {
+    std::string place;
+    std::cout << "Enter the place for weather information: (e.g. Seoul, Busan, Incheon) " << std::endl;
+    std::getline(std::cin, place);
 
-  client.GetWeatherInfo(place);
+    client.GetWeatherInfo(place);
+  }
   return 0;
 }

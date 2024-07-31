@@ -55,15 +55,19 @@ private:
 };
 
 int main(int argc, char** argv) {
-    std::string target_str = "localhost:50051";
+    std::string target_str = "localhost:50052";
 
     StockClient client(grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
-    
-    std::string ticker;
-    std::cout << "Enter stock ticker: ";
-    std::cin >> ticker;
 
-    client.GetStock(ticker);
+    while(true){
+        
+        std::string ticker;
+        std::cout << "Enter stock ticker: (e.g. TSLA, SHCD, AMZN) ";
+        std::cin >> ticker;
+
+        client.GetStock(ticker);
+    }
+    
 
     return 0;
 }

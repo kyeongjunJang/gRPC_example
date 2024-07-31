@@ -13,8 +13,8 @@ gRPC example
 - Service Description: Clients request stock price trends, and the server streams real-time price data for a specific stock.
 - Protocol: Defines an RPC method for single request and streaming response.
 
-### 3. SoccerStreaming: Stream Request → Stream Response (Bidirectional streaming RPCs, TBU)
-- Service Description: Multiple clients watch live soccer matches and receive event updates .
+### 3. ChatService: Stream Request → Stream Response (Bidirectional streaming RPCs, TBU)
+- Service Description: Clients can join a live chat room to send and receive messages in real-time. This service supports bidirectional streaming, allowing multiple clients to exchange messages simultaneously.
 - Protocol: Defines an RPC method for streaming request and streaming response.
 
 <pre>
