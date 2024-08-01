@@ -16,7 +16,7 @@ class ChatServiceImpl final : public ChatService::Service {
     Status SendMessage(ServerContext* context, ServerReaderWriter<ChatMessage, ChatMessage>* stream) override {
         ChatMessage message;
         while (stream->Read(&message)) {
-            std::cout << "Received message from " << message.name() << ": " << message.message() << std::endl;
+            std::cout << "Received message from [" << message.name() << "]: " << message.message() << std::endl;
             stream->Write(message);
         }
         return Status::OK;

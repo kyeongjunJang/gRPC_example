@@ -3,8 +3,8 @@ project(ChatService
     LANGUAGES CXX)
 
 foreach(_target
-ChatService_client ChatService_server
-    )
+ChatService_client ChatService_server SingleChatService_client SingleChatService_server
+)
     add_executable(${_target} ${_target}.cpp)
     target_link_libraries(${_target}
         PRIVATE

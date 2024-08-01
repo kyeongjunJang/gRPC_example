@@ -4,6 +4,7 @@ package chat;
 
 service ChatService {
   rpc SendMessage (stream ChatMessage) returns (stream ChatMessage);
+  rpc SendMessageSingle (ChatMessage) returns (ChatMessage);
 }
 
 message ChatMessage {

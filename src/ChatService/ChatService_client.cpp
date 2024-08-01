@@ -19,10 +19,10 @@ public:
     void SendMessage(const std::string& name) {
         ClientContext context;
         std::shared_ptr<ClientReaderWriter<ChatMessage, ChatMessage>> stream(stub_->SendMessage(&context));
-
         std::thread writer([stream, name]() {
             std::string message;
             while (std::getline(std::cin, message)) {
+                std::cout << "Enter message: ";
                 ChatMessage chat_message;
                 chat_message.set_name(name);
                 chat_message.set_message(message);
@@ -30,11 +30,6 @@ public:
             }
             stream->WritesDone();
         });
-
-        ChatMessage server_response;
-        while (stream->Read(&server_response)) {
-            std::cout << "Received echo: " << server_response.message() << std::endl;
-        }
 
         writer.join();
         Status status = stream->Finish();
@@ -50,7 +45,9 @@ private:
 int main() {
     ChatClient client(grpc::CreateChannel("127.0.0.1:50053", grpc::InsecureChannelCredentials()));
 
-    std::string user("default");
+    std::string user;
+    std::cout << "Enter your name: ";
+    std::cin >> user;
 
     client.SendMessage(user);
     return 0;
